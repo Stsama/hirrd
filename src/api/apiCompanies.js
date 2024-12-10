@@ -1,4 +1,4 @@
-import supabaseClient from "@/utils/supabase";
+import supabaseClient, {supabaseUrl} from "@/utils/supabase";
 
 // Fetch Companies
 export async function getCompanies(token) {

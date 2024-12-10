@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Heart, MapPinIcon, Trash2Icon } from "lucide-react";
 import { Button } from "./ui/button";
 import {
@@ -9,7 +10,7 @@ import {
 } from "./ui/card";
 import { Link } from "react-router-dom";
 import useFetch from "@/hooks/use-fetch";
-import { saveJob } from "@/api/apiJobs";
+import { deleteJob, saveJob } from "@/api/apiJobs";
 import { useUser } from "@clerk/clerk-react";
 import { useEffect, useState } from "react";
 import { BarLoader } from "react-spinners";
@@ -20,22 +21,19 @@ const JobCard = ({
   onJobAction = () => {},
   isMyJob = false,
 }) => {
-
   const [saved, setSaved] = useState(savedInit);
 
   const { user } = useUser();
 
-  // const { loading: loadingDeleteJob, fn: fnDeleteJob } = useFetch(deleteJob, {
-  //   job_id: job.id,
-  // });
+  const { loading: loadingDeleteJob, fn: fnDeleteJob } = useFetch(deleteJob, {
+    job_id: job.id,
+  });
 
   const {
     loading: loadingSavedJob,
     data: savedJob,
     fn: fnSavedJob,
-  } = useFetch(saveJob, {
-    alreadySaved: saved,
-  });
+  } = useFetch(saveJob);
 
   const handleSaveJob = async () => {
     await fnSavedJob({
@@ -45,10 +43,10 @@ const JobCard = ({
     onJobAction();
   };
 
-  // const handleDeleteJob = async () => {
-  //   await fnDeleteJob();
-  //   onJobAction();
-  // };
+  const handleDeleteJob = async () => {
+    await fnDeleteJob();
+    onJobAction();
+  };
 
   useEffect(() => {
     if (savedJob !== undefined) setSaved(savedJob?.length > 0);
@@ -56,9 +54,9 @@ const JobCard = ({
 
   return (
     <Card className="flex flex-col">
-      {/* {loadingDeleteJob && (
+      {loadingDeleteJob && (
         <BarLoader className="mt-4" width={"100%"} color="#36d7b7" />
-      )} */}
+      )}
       <CardHeader className="flex">
         <CardTitle className="flex justify-between font-bold">
           {job.title}
@@ -104,7 +102,7 @@ const JobCard = ({
         )}
       </CardFooter>
     </Card>
-  )
-}
+  );
+};
 
-export default JobCard
+export default JobCard;

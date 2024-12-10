@@ -4,9 +4,9 @@ import Header from '../components/header'
 
 const AppLayout = () => {
   return (
-    <div className='container m-auto'>
+    <div className=''>
         <div className="grid-background"></div>
-        <main className='min-h-screen'>
+        <main className='container m-auto min-h-screen'>
             <Header />
             <Outlet />
         </main>

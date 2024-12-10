@@ -29,9 +29,6 @@ const JobListing = () => {
     data: companies,
     fn: fnCompanies,
   } = useFetch(getCompanies);
-
-  console.log(jobs);
-
   useEffect(() => {
     if (isLoaded) fnJobs();
     // eslint-disable-next-line react-hooks/exhaustive-deps
