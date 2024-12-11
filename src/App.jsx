@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ThemeProvider } from "@/components/theme-provider"
 import './App.css'
 import AppLayout from './layouts/app-layout.jsx'
-import LandingPage from './pages/Landing.jsx'
+import LandingPage from './pages/landing.jsx'
 import Onboarding from './pages/onboarding.jsx';
 import JobListing from './pages/job-listing.jsx';
 import JobPage from './pages/job.jsx';
