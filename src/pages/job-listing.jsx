@@ -3,9 +3,9 @@ import { useUser } from "@clerk/clerk-react";
 import { State } from "country-state-city";
 import { BarLoader } from "react-spinners";
 import useFetch from "@/hooks/use-fetch";
-import JobCard from "@/components/job-card";
-import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
+import JobCard from "@/components/job-card.jsx";
+import {Button} from "@/components/ui/button.jsx";
+import {Input} from "@/components/ui/input.jsx";
 import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 
 
