@@ -23,8 +23,6 @@ const JobPage = () => {
   const { isLoaded, user } = useUser();
   const { id } = useParams();
 
-  console.log(user)
-
   const {
     loading: loadingHiringStatus,
     fn: fnHiringStatus,
