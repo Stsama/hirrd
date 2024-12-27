@@ -44,7 +44,7 @@ const LandingPage = () => {
             delay: 2000,
           }),
         ]}
-        className="w-full py-10"
+        className="w-full py-10 z-40"
       >
         <CarouselContent className="flex gap-5 sm:gap-20 items-center">
           {companies.map(({ name, id, path }) => (
